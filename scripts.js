@@ -133,25 +133,36 @@ console.log(sumOfArray2 / array2.length);
    
 //11. Write a function that takes two arrays of numbers and returns true if the average of the elements in the first array is greater than the average of the elements in the second array.
 
-let firstArray = [6, 9, 12, 18, 24];
-let secondArray =[3, 7, 13, 17, 21];   
-let totalOfFirstArray = 0;
-let totalofSecondArray = 0;
+let firstArray = [6, 9, 12, 18, 24];        //first array
+let secondArray =[3, 7, 13, 17, 21];        //second array
+let totalOfFirstArray = 0;                  //total of first array
+let totalofSecondArray = 0;                 //total of second array
+let averageOfFirstArray = 0;                //averageOfFirstArray variable
+let averageOfSecondArray = 0;              //averageOfSecondArray variable
 
 for(let i = 0; i < firstArray.length; i++) {
-    totalOfFirstArray+= firstArray[i];
+    totalOfFirstArray+= firstArray[i];         //sum of first array
 }
 console.log(totalOfFirstArray);
-console.log(totalOfFirstArray / firstArray.length);
+console.log(totalOfFirstArray / firstArray.length);    //average of first array
 
 for(let i = 0; i < secondArray.length; i++) {
-    totalofSecondArray+= secondArray[i];
+    totalofSecondArray+= secondArray[i];         //sum of second array
 }
 console.log(totalofSecondArray);
-console.log(totalofSecondArray / secondArray.length);
+console.log(totalofSecondArray / secondArray.length);  //average of second array
 
-//This one I had a hard time determining the final steps. 
-//I could find the sums of the array and the averages, but I wasn't sure how to produce the Boolean results to compare the averages of the array.
+function greaterAverage () {
+    if(averageOfFirstArray > averageOfSecondArray) {
+        console.log(true);
+    } else 
+        console.log(false);                        //result of function
+}
+greaterAverage();
+
+//This one I had a hard time determining the final steps, but I was able to finally figure out how to write a function 
+//that would produce the results.
+
 
 //12. Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
 
@@ -166,9 +177,15 @@ if(isHotOutside && moneyInPocket >= 10.50) {
 
 //13. Create a function of your own that solves a problem. In comments, write what the function does and why you created it.
 
-function createAddress(houseNumber, streetName) {
-    console.log(houseNumber + '' + streetName);
-}
-createAddress(123 , 'Main Street');
+//I've created a function called 'scrambledNumbers'. This function will take an array of numbers
+//and put them in order from smallest to largest. This could be very useful when working with sets of numbers in a database to ensure that they
+//appear in numerical order to determine median value when given a particular set of data to analyze. In this example, these elements in the array
+//could be ages of participants in a survey and you wanted a function that could help you order them in numerical value to find a median age. 
 
-//This function would be useful for combining data together in seperate arrays to create customer addresses within a database. 
+let numbersArray = [21, 58, 63, 2, 7, 13, 99];
+
+function scrambledNumbers () {
+numbersArray.sort(function(a, b){return a - b});
+console.log(numbersArray);
+}
+scrambledNumbers();
